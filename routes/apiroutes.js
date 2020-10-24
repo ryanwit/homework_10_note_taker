@@ -3,7 +3,7 @@ const notes = require("../db/notesclass")
 
 router.get("/api/notes", function(req, res){
     notes.getNotes()
-    .then((data){
+    .then((data) => {
         return res.json(data)
     }).catch(err => {
         return res.json(err)

@@ -44,14 +44,15 @@ class Notes {
         })
     }
 
-    // deletedNotes(id) {
-    //     return this.getNotes()
-    //     .then(data => {
-    //         return data.filter(notes => notes.id !== id)
-    //     }).then(data => {
-    //         return this.writeNotes(data)
-    //     })
-    // }
+    deletedNotes(id) {
+        return this.getNotes()
+        .then(data => {
+            return data.filter(notes => notes.id !== id)
+        }).then(data => {
+            return this.writeNotes(data)
+        })
+    }
 }
 
+module.exports = new Notes();
 
