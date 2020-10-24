@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const notes = require("../db/notesclass")
+const notes = require("../Develop/db/notesclass")
 
 router.get("/api/notes", function(req, res){
     notes.getNotes()
