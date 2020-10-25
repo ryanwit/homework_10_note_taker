@@ -44,7 +44,7 @@ class Notes {
         })
     }
 
-    deletedNotes(id) {
+    deleteNotes(id) {
         return this.getNotes()
         .then(data => {
             return data.filter(notes => notes.id !== id)
