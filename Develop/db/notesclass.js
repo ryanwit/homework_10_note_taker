@@ -1,8 +1,15 @@
+/* -------------------------------------------------------------------------- */
+/*        class that holds all functions to interact with db.json file        */
+/* -------------------------------------------------------------------------- */
+
 const fs = require("fs")
 const util = require("util")
 const writeFileAsync = util.promisify(fs.writeFile)
 const readFileAsync = util.promisify(fs.readFile)
 const uuidv1 = require("uuidv1");
+
+/* ------------------------ NOTES CLASS W/ FUNCTIONS ------------------------ */
+
 class Notes {
     readNotes() {
         return readFileAsync("db/db.json", "utf8")
