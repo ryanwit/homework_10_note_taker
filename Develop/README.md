@@ -44,9 +44,9 @@ Ryan Witherspoon
 ![image info](./images/homework_10_screengrab.png)
 
 ## Links
-[link to GitHub!](https://ryanwit.github.io/homework_10_team_profile_generator/.)
+[link to GitHub!](https://github.com/ryanwit/homework_11_note_taker)
 
-[link to Heroku!](https://github.com/ryanwit/homework_10_team_profile_generator)
+[link to Heroku!](https://whispering-retreat-20482.herokuapp.com/notes)
 
 [link to Screencastify Demo!](https://drive.google.com/file/d/1rrUyZWQYi47d-9Ed4cdVNochJUtbFbze/view)
 

@@ -2,7 +2,7 @@ const fs = require("fs")
 const util = require("util")
 const writeFileAsync = util.promisify(fs.writeFile)
 const readFileAsync = util.promisify(fs.readFile)
-let id = 0
+let id = 0 
 
 class Notes {
     readNotes() {
@@ -45,7 +45,7 @@ class Notes {
         })
     }
 
-    deleteNotes(id) {
+    deletedNotes(id) {
         return this.getNotes()
         .then(data => {
             return data.filter(notes => notes.id !== id)
