@@ -2,8 +2,7 @@ const fs = require("fs")
 const util = require("util")
 const writeFileAsync = util.promisify(fs.writeFile)
 const readFileAsync = util.promisify(fs.readFile)
-let id = 0 
-
+const uuidv1 = require("uuidv1");
 class Notes {
     readNotes() {
         return readFileAsync("db/db.json", "utf8")
@@ -14,17 +13,15 @@ class Notes {
     getNotes(){
         return this.readNotes()
         .then(data => {
+            console.log(data)
             let notes;
-
             try{
                 notes = [].concat(JSON.parse(data))
             }
-
             catch(err) {
                 notes = [];
             }
-
-            return notes
+            return notes;
         })
     }
     addNotes(data) {
@@ -32,28 +29,24 @@ class Notes {
         if(!title || !text) {
             throw new Error("Please enter a title and text below!")
         }
-    
-        const competedNote = {title, text, id:id++}
-
+        const completedNote = {title, text, id: uuidv1()}
         return this.getNotes()
         .then(data => {
-            return[...data,completedNote]
-        }).then(data => {
-            return this.writeNotes(data)
+            console.log(data)
+            return[...data, completedNote]
+        }).then(updatedNotes => {
+            console.log(updatedNotes)
+            return this.writeNotes(updatedNotes)
         }).then(() => {
-            return completedNote
+            console.log(completedNote)
+            return completedNote;
         })
     }
-
     deletedNotes(id) {
         return this.getNotes()
-        .then(data => {
-            return data.filter(notes => notes.id !== id)
-        }).then(data => {
-            return this.writeNotes(data)
-        })
+        .then((remove) => remove.filter((deletedNote) => deletedNote.id !== id))
+        .then((filteredNotes) => this.writeNotes(filteredNotes));
     }
 }
-
 module.exports = new Notes();
 

@@ -1,33 +1,20 @@
 const router = require("express").Router()
 const notes = require("../db/notesclass")
-
-router.get("/api/notes", function(req, res){
+router.get("/notes", function(req, res){
     notes.getNotes()
     .then((data) => {
-        return res.json(data)
-    }).catch(err => {
-        return res.json(err)
+        res.json(data)
     })
 })
-
-router.post("/api/notes", function(req, res){
+router.post("/notes", function(req, res){
     notes.addNotes(req.body)
     .then((data) => {
-        return res.json(data)
-    }).catch(err => {
-        return res.json(err)
+        res.json(data)
     })
 })
-
-router.delete("/api/notes/:id", function(req, res){
-    notes.deleteNotes(req.params.id)
-    .then(() => {
-        return res.json({
-            ok: true
-        })
-    }).catch(err => {
-        return res.json(err)
-    })
+router.delete("/notes/:id", function(req, res){
+    notes.deletedNotes(req.params.id)
+    .then(() => 
+        res.json({ok: true}))
 })
-
 module.exports = router
