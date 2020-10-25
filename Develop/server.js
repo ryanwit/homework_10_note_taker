@@ -3,13 +3,13 @@ const express = require("express");
 const apiRoutes = require("./routes/apiroutes")
 const htmlRoutes = require("./routes/htmlroutes")
 
-
-const app = express();
-const PORT = 3000;
-
-
-
 // create PORT to use
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+
+
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public")); // server once you start it goes into public folder and looks for html file

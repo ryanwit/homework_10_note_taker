@@ -32,6 +32,7 @@ class Notes {
         if(!title || !text) {
             throw new Error("Please enter a title and text below!")
         }
+    
         const competedNote = {title, text, id:id++}
 
         return this.getNotes()
